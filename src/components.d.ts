@@ -6,63 +6,248 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
+    interface FavoriteButton {
         /**
-          * The first name
+          * @default false
          */
-        "first": string;
+        "isFavorite": boolean;
         /**
-          * The last name
+          * @default ''
          */
-        "last": string;
+        "recipeId": string;
+    }
+    interface MealDayCard {
         /**
-          * The middle name
+          * @default ''
          */
-        "middle": string;
+        "day": string;
+        /**
+          * @default ''
+         */
+        "recipeImage": string;
+        /**
+          * @default ''
+         */
+        "recipeName": string;
+    }
+    interface RecipeCard {
+        /**
+          * @default ''
+         */
+        "category": string;
+        /**
+          * @default ''
+         */
+        "image": string;
+        /**
+          * @default false
+         */
+        "isFavorite": boolean;
+        /**
+          * @default ''
+         */
+        "name": string;
+        /**
+          * @default ''
+         */
+        "recipeId": string;
+    }
+    interface RecipeSearch {
+        /**
+          * @default 'Search recipes...'
+         */
+        "placeholder": string;
     }
 }
+export interface FavoriteButtonCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLFavoriteButtonElement;
+}
+export interface MealDayCardCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLMealDayCardElement;
+}
+export interface RecipeCardCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLRecipeCardElement;
+}
+export interface RecipeSearchCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLRecipeSearchElement;
+}
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLFavoriteButtonElementEventMap {
+        "favoriteToggle": string;
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    interface HTMLFavoriteButtonElement extends Components.FavoriteButton, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLFavoriteButtonElementEventMap>(type: K, listener: (this: HTMLFavoriteButtonElement, ev: FavoriteButtonCustomEvent<HTMLFavoriteButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLFavoriteButtonElementEventMap>(type: K, listener: (this: HTMLFavoriteButtonElement, ev: FavoriteButtonCustomEvent<HTMLFavoriteButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLFavoriteButtonElement: {
+        prototype: HTMLFavoriteButtonElement;
+        new (): HTMLFavoriteButtonElement;
+    };
+    interface HTMLMealDayCardElementEventMap {
+        "mealAdd": void;
+        "mealRemove": void;
+        "mealChange": void;
+    }
+    interface HTMLMealDayCardElement extends Components.MealDayCard, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLMealDayCardElementEventMap>(type: K, listener: (this: HTMLMealDayCardElement, ev: MealDayCardCustomEvent<HTMLMealDayCardElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLMealDayCardElementEventMap>(type: K, listener: (this: HTMLMealDayCardElement, ev: MealDayCardCustomEvent<HTMLMealDayCardElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLMealDayCardElement: {
+        prototype: HTMLMealDayCardElement;
+        new (): HTMLMealDayCardElement;
+    };
+    interface HTMLRecipeCardElementEventMap {
+        "favoriteToggle": string;
+    }
+    interface HTMLRecipeCardElement extends Components.RecipeCard, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLRecipeCardElementEventMap>(type: K, listener: (this: HTMLRecipeCardElement, ev: RecipeCardCustomEvent<HTMLRecipeCardElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLRecipeCardElementEventMap>(type: K, listener: (this: HTMLRecipeCardElement, ev: RecipeCardCustomEvent<HTMLRecipeCardElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLRecipeCardElement: {
+        prototype: HTMLRecipeCardElement;
+        new (): HTMLRecipeCardElement;
+    };
+    interface HTMLRecipeSearchElementEventMap {
+        "search": string;
+    }
+    interface HTMLRecipeSearchElement extends Components.RecipeSearch, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLRecipeSearchElementEventMap>(type: K, listener: (this: HTMLRecipeSearchElement, ev: RecipeSearchCustomEvent<HTMLRecipeSearchElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLRecipeSearchElementEventMap>(type: K, listener: (this: HTMLRecipeSearchElement, ev: RecipeSearchCustomEvent<HTMLRecipeSearchElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLRecipeSearchElement: {
+        prototype: HTMLRecipeSearchElement;
+        new (): HTMLRecipeSearchElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "favorite-button": HTMLFavoriteButtonElement;
+        "meal-day-card": HTMLMealDayCardElement;
+        "recipe-card": HTMLRecipeCardElement;
+        "recipe-search": HTMLRecipeSearchElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
+    interface FavoriteButton {
         /**
-          * The first name
+          * @default false
          */
-        "first"?: string;
+        "isFavorite"?: boolean;
+        "onFavoriteToggle"?: (event: FavoriteButtonCustomEvent<string>) => void;
         /**
-          * The last name
+          * @default ''
          */
-        "last"?: string;
+        "recipeId"?: string;
+    }
+    interface MealDayCard {
         /**
-          * The middle name
+          * @default ''
          */
-        "middle"?: string;
+        "day"?: string;
+        "onMealAdd"?: (event: MealDayCardCustomEvent<void>) => void;
+        "onMealChange"?: (event: MealDayCardCustomEvent<void>) => void;
+        "onMealRemove"?: (event: MealDayCardCustomEvent<void>) => void;
+        /**
+          * @default ''
+         */
+        "recipeImage"?: string;
+        /**
+          * @default ''
+         */
+        "recipeName"?: string;
+    }
+    interface RecipeCard {
+        /**
+          * @default ''
+         */
+        "category"?: string;
+        /**
+          * @default ''
+         */
+        "image"?: string;
+        /**
+          * @default false
+         */
+        "isFavorite"?: boolean;
+        /**
+          * @default ''
+         */
+        "name"?: string;
+        "onFavoriteToggle"?: (event: RecipeCardCustomEvent<string>) => void;
+        /**
+          * @default ''
+         */
+        "recipeId"?: string;
+    }
+    interface RecipeSearch {
+        "onSearch"?: (event: RecipeSearchCustomEvent<string>) => void;
+        /**
+          * @default 'Search recipes...'
+         */
+        "placeholder"?: string;
     }
 
-    interface MyComponentAttributes {
-        "first": string;
-        "middle": string;
-        "last": string;
+    interface FavoriteButtonAttributes {
+        "recipeId": string;
+        "isFavorite": boolean;
+    }
+    interface MealDayCardAttributes {
+        "day": string;
+        "recipeName": string;
+        "recipeImage": string;
+    }
+    interface RecipeCardAttributes {
+        "recipeId": string;
+        "name": string;
+        "image": string;
+        "category": string;
+        "isFavorite": boolean;
+    }
+    interface RecipeSearchAttributes {
+        "placeholder": string;
     }
 
     interface IntrinsicElements {
-        "my-component": Omit<MyComponent, keyof MyComponentAttributes> & { [K in keyof MyComponent & keyof MyComponentAttributes]?: MyComponent[K] } & { [K in keyof MyComponent & keyof MyComponentAttributes as `attr:${K}`]?: MyComponentAttributes[K] } & { [K in keyof MyComponent & keyof MyComponentAttributes as `prop:${K}`]?: MyComponent[K] };
+        "favorite-button": Omit<FavoriteButton, keyof FavoriteButtonAttributes> & { [K in keyof FavoriteButton & keyof FavoriteButtonAttributes]?: FavoriteButton[K] } & { [K in keyof FavoriteButton & keyof FavoriteButtonAttributes as `attr:${K}`]?: FavoriteButtonAttributes[K] } & { [K in keyof FavoriteButton & keyof FavoriteButtonAttributes as `prop:${K}`]?: FavoriteButton[K] };
+        "meal-day-card": Omit<MealDayCard, keyof MealDayCardAttributes> & { [K in keyof MealDayCard & keyof MealDayCardAttributes]?: MealDayCard[K] } & { [K in keyof MealDayCard & keyof MealDayCardAttributes as `attr:${K}`]?: MealDayCardAttributes[K] } & { [K in keyof MealDayCard & keyof MealDayCardAttributes as `prop:${K}`]?: MealDayCard[K] };
+        "recipe-card": Omit<RecipeCard, keyof RecipeCardAttributes> & { [K in keyof RecipeCard & keyof RecipeCardAttributes]?: RecipeCard[K] } & { [K in keyof RecipeCard & keyof RecipeCardAttributes as `attr:${K}`]?: RecipeCardAttributes[K] } & { [K in keyof RecipeCard & keyof RecipeCardAttributes as `prop:${K}`]?: RecipeCard[K] };
+        "recipe-search": Omit<RecipeSearch, keyof RecipeSearchAttributes> & { [K in keyof RecipeSearch & keyof RecipeSearchAttributes]?: RecipeSearch[K] } & { [K in keyof RecipeSearch & keyof RecipeSearchAttributes as `attr:${K}`]?: RecipeSearchAttributes[K] } & { [K in keyof RecipeSearch & keyof RecipeSearchAttributes as `prop:${K}`]?: RecipeSearch[K] };
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.IntrinsicElements["my-component"] & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "favorite-button": LocalJSX.IntrinsicElements["favorite-button"] & JSXBase.HTMLAttributes<HTMLFavoriteButtonElement>;
+            "meal-day-card": LocalJSX.IntrinsicElements["meal-day-card"] & JSXBase.HTMLAttributes<HTMLMealDayCardElement>;
+            "recipe-card": LocalJSX.IntrinsicElements["recipe-card"] & JSXBase.HTMLAttributes<HTMLRecipeCardElement>;
+            "recipe-search": LocalJSX.IntrinsicElements["recipe-search"] & JSXBase.HTMLAttributes<HTMLRecipeSearchElement>;
         }
     }
 }

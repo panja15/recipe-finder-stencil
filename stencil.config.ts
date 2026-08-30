@@ -2,16 +2,19 @@ import { Config } from '@stencil/core';
 
 export const config: Config = {
   namespace: 'recipe-components',
+  extras: {
+    enableImportInjection: true,
+  },
   outputTargets: [
     {
       type: 'dist',
       esmLoaderPath: '../loader',
     },
-    {
-      type: 'dist-custom-elements',
-      customElementsExportBehavior: 'auto-define-custom-elements',
-      externalRuntime: false,
-    },
+    // {
+    //   type: 'dist-custom-elements',
+    //   customElementsExportBehavior: 'auto-define-custom-elements',
+    //   externalRuntime: false,
+    // },
     {
       type: 'docs-readme',
     },

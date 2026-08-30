@@ -1,0 +1,56 @@
+:host {
+  display: block;
+}
+
+article {
+  min-height: 180px;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: white;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+.meal {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 1rem;
+  align-items: center;
+}
+
+.meal img {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.meal h3 {
+  margin: 0;
+}
+
+.actions {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 0.5rem;
+}
+
+button {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #f5f5f5;
+}
+
+.empty {
+  padding: 1rem 0;
+  text-align: center;
+}
